@@ -1,0 +1,16 @@
+cc_defaults {
+    name: "rpi4_gpio_defaults",
+    cflags: ["-Wall", "-Werror"],
+    header_libs: ["libhardware_headers"],
+    shared_libs: [
+        "liblog",
+        "libcutils",
+    ],
+}
+
+cc_library_shared {
+    name: "test_gpio_hal",
+    defaults: ["rpi4_gpio_defaults"],
+    srcs: ["test_gpio_hal.c"],
+    relative_install_path: "hw",
+}
