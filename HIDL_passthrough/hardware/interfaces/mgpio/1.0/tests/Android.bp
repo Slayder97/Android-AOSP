@@ -1,0 +1,14 @@
+cc_binary {
+    name: "mgpio_test",
+    srcs: ["mgpio_test.cpp"],
+    shared_libs: [
+        "liblog",
+        "libhidlbase",
+        "libutils",
+        "android.hardware.mgpio@1.0",
+    ],
+    cflags: [
+        "-Wall",
+        "-Wno-unused-parameter",
+    ],
+}

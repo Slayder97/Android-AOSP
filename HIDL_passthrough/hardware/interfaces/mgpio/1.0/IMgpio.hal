@@ -1,0 +1,9 @@
+package android.hardware.mgpio@1.0;
+
+interface IMgpio {
+    exportGpio(int32_t pin) generates (Status status);
+    unexportGpio(int32_t pin) generates (Status status);
+    readValue(int32_t pin) generates (int32_t retVal);
+    wirteValue(int32_t pin, int32_t value) generates (Status status);
+    setDirection(int32_t pin, int32_t dir) generates (Status status);
+};

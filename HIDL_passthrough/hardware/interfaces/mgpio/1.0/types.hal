@@ -1,0 +1,17 @@
+package android.hardware.mgpio@1.0;
+
+enum Status : int32_t {
+    FAILURE = -1,
+    SUCCESS,
+    UNKNOWN,
+};
+
+enum Direction : int32_t {
+    INPUT,
+    OUTPUT,
+};
+
+enum Voltage : int32_t {
+    LOW_VOLTAGE,
+    HIGH_VOLTAGE,
+};

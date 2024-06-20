@@ -1,0 +1,4 @@
+service mgpio-service /vendor/bin/hw/android.hardware.mgpio@1.0-service
+    class hal
+    user system
+    group system
