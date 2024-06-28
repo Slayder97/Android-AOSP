@@ -1,20 +1,4 @@
-// FIXME: your file license if you have one
-
-cc_library_shared {
-    name: "android.hardware.mgpio@1.0-impl",
-    relative_install_path: "hw",
-    proprietary: true,
-    srcs: [
-        "Mgpio.cpp",
-    ],
-    shared_libs: [
-        "liblog",
-        "libhidlbase",
-        "libutils",
-        "android.hardware.mgpio@1.0",
-    ],
-}
-
+// Default config
 cc_defaults {
     name: "mgpio_service_defaults",
     relative_install_path: "hw",
@@ -32,9 +16,26 @@ cc_defaults {
     ],
 }
 
+// service registration
 cc_binary {
     name: "android.hardware.mgpio@1.0-service",
     defaults: ["mgpio_service_defaults"],
     init_rc: ["android.hardware.mgpio@1.0-service.rc"],
     srcs: ["service.cpp"],
+}
+
+// HIDL imlementation as shared library
+cc_library_shared {
+    name: "android.hardware.mgpio@1.0-impl",
+    relative_install_path: "hw",
+    proprietary: true,
+    srcs: [
+        "Mgpio.cpp",
+    ],
+    shared_libs: [
+        "liblog",
+        "libhidlbase",
+        "libutils",
+        "android.hardware.mgpio@1.0",
+    ],
 }
