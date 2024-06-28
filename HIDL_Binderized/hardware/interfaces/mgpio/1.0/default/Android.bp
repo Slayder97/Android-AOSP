@@ -1,0 +1,28 @@
+// Default config
+cc_defaults {
+    name: "mgpio_service_defaults",
+    relative_install_path: "hw",
+    defaults: ["hidl_defaults"],
+    vendor: true,
+
+    shared_libs: [
+        "liblog",
+        "libbase",
+        "libdl",
+        "libutils",
+        "libhardware",
+        "libhidlbase",
+        "android.hardware.mgpio@1.0",
+    ],
+}
+
+// HIDL service imlementation
+cc_binary {
+    name: "android.hardware.mgpio@1.0-service",
+    init_rc: ["android.hardware.mgpio@1.0-service.rc"],
+    defaults: ["mgpio_service_defaults"],
+    srcs: [
+        "Mgpio.cpp",
+        "service.cpp",
+    ],
+}
